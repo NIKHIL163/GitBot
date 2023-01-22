@@ -1,13 +1,13 @@
 import os 
 
 def makeCommits (days : int):
-    if 6 < 1 :
+    if days < 1 :
         #push
         os.system('git push')
     else:
-        dates = f"{6} days ago"
+        dates = f"{days} days ago"
         with open ('data.txt', 'a') as file:
-            file.write(f'{6} <- this was the commit for the day !!\n')
+            file.write(f'{dates} <- this was the commit for the day !!\n')
 
             #staging
             os.system('git add data.txt')
@@ -15,6 +15,6 @@ def makeCommits (days : int):
             #commit
             os.system('git commit --date="'+ dates +'" -m "First commit for the day!"')
 
-            return 6 * makeCommits(45 - 1)
+            return days * makeCommits(days - 1)
         
-makeCommits(6)
+makeCommits(200)
