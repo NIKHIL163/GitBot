@@ -17,4 +17,4 @@ def makeCommits (days : int):
 
             return days * makeCommits(days - 1)
         
-makeCommits(54)
+makeCommits(10)
